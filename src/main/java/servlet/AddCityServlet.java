@@ -26,7 +26,9 @@ public class AddCityServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.setContentType("text/html");
+      //  resp.setContentType("text/html");
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         out.println(htmlService.getAddCity(Title.ADD_CITY.getValue(), cityService.getAllCity()));
 
@@ -35,6 +37,9 @@ public class AddCityServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html; charset=UTF-8");
+     //   super.service(req, resp);
         String name = req.getParameter(RequestParameter.NAME.getValue());
 
         //Integer language = Integer.valueOf(req.getParameter(RequestParameter.LANGUAGE.getValue()));
@@ -63,8 +68,9 @@ public class AddCityServlet extends HttpServlet {
             int language1= Integer.parseInt(language);
 
             if (cityService.checkAddCityParameters(name, language1)) {
-                req.setCharacterEncoding("UTF-8");
+             //   req.setCharacterEncoding("UTF-8");
                 cityService.addNewCity(name ,language1);
+                //System.out.println(name);
             }
 
 

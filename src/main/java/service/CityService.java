@@ -7,6 +7,7 @@ import dao.CityDAO;
 import data.City;
 
 
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ public class CityService<isNotEmpty> {
         City c = new City(
                 UUID.randomUUID().toString(),
                 //this.id = id;
-                name.toString(),
+                name,
                 language);
         return new CityDAO().add(c) ? c : null;
     }
