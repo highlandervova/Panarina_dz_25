@@ -139,7 +139,9 @@ public class HtmlService {
 //
         private String getHead(String title) {
             StringBuilder out = new StringBuilder();
-            out.append("<html><head><title>");
+            out.append("<html><head>");
+           out.append("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/> <title>");
+
             out.append(title);
             out.append("</title>");
             out.append("<style type='text/css'> " +
