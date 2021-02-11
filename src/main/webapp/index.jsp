@@ -1,5 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page import="data.City" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="dao.CityDAO" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,22 +23,46 @@
     <input type="submit" value="AddCity">
 </form>
 
+<p> "Name of City" </p>
 
-<h1>Name of City</h1>
-<table>
+<table border="1">
+
     <tr><th>NAME</th><th>LANGUAGE</th></tr>
+
+
+<tr>
+    <jsp:useBean id="CityService" class="service.CityService" />
+    <c:forEach var="d" items="${CityService.allCity}">
+
+        <td>${d.name}</td>
+    <td>
+
+
+       <c:choose>
+            <c:when test="${d.language==1}">
+                <p>  EN </p>
+            </c:when>
+            <c:when test="${d.language==2}">
+                <p>  RU </p>
+            </c:when>
+            <c:when test="${d.language==3}">
+                <p> UKR </p>
+            </c:when>
+            <c:otherwise>
+                <p>  "no identify"</p>
+            </c:otherwise>
+
+
+        </c:choose>
+
+            </td>
+</tr>
+    <tr>
+        </c:forEach>
+</tr>
+
 </table>
 
-<br/>
-<br/>
 
-
-<jsp:useBean id="CityDAO" class="dao.CityDAO" />
-<select>
-    <c:forEach var="options" items="${CityDAO.allCityJsp}">
-    <option>${options}</option>
-
-        </c:forEach>
-</select>
 </body>
 </html>

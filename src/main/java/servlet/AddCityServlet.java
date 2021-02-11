@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+
+import static org.eclipse.jdt.internal.compiler.util.Util.UTF_8;
 
 public class AddCityServlet extends HttpServlet {
     CityService cityService = new CityService();
@@ -60,13 +63,13 @@ public class AddCityServlet extends HttpServlet {
             int language1= Integer.parseInt(language);
 
             if (cityService.checkAddCityParameters(name, language1)) {
-                cityService.addNewCity(name, language1);
+                req.setCharacterEncoding("UTF-8");
+                cityService.addNewCity(name ,language1);
             }
 
 
             }
         }
-
 
 
 

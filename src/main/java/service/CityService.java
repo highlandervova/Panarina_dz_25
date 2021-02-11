@@ -14,14 +14,12 @@ import static util.StringUtil.isNotEmpty;
 
 public class CityService<isNotEmpty> {
 
-    public City addNewCity(String name,
-                         Integer type
-                                     ) {
+    public City addNewCity( String name, int language ) {
         City c = new City(
                 UUID.randomUUID().toString(),
                 //this.id = id;
-                name,
-                type);
+                name.toString(),
+                language);
         return new CityDAO().add(c) ? c : null;
     }
 
@@ -33,9 +31,9 @@ public class CityService<isNotEmpty> {
         return new CityDAO().createTableCity() ;
     }
 
-    public boolean checkAddCityParameters(String name,  Integer type) {
+    public boolean checkAddCityParameters(String name,  Integer language) {
         return isNotEmpty(name) &&
-                type != null && type >= 1 && type <= 3 ;
+                language != null && language >= 1 && language <= 3 ;
     }
 
 //    public City addNewCity(String name, Integer type) {

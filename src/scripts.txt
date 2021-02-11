@@ -1,0 +1,24 @@
+
+CREATE TABLE public.city
+(
+    id character varying(50) COLLATE pg_catalog."default" bv   nNOT NULL,
+    name character varying(1024) COLLATE pg_catalog."default" NOT NULL,
+    language integer NOT NULL,
+    CONSTRAINT city_pkey PRIMARY KEY (id)
+)
+
+
+INSERT INTO public.city(
+	id, name, language)
+	VALUES (1,'Kyiv,1);
+	INSERT INTO public.city(
+	id, name, language)
+	VALUES (2,'Киев',2);
+	INSERT INTO public.city(
+	id, name, language)
+	VALUES (3,'Vein',1);
+	INSERT INTO public.city(
+    	id, name, language)
+    	VALUES (4,'Вена',2);
+
+

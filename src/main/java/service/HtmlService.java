@@ -78,6 +78,7 @@ public class HtmlService {
         public String getAddPage(String title) {
             StringBuilder out = new StringBuilder();
             out.append(getHead(title));
+
             out.append("<form action='");
             out.append(RedirectPath.ADD_CITY.getValue());
             out.append("' method='POST'>\n");

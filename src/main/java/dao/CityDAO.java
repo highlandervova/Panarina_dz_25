@@ -32,25 +32,7 @@ public class CityDAO extends PostgreSqlDao {
         }
     }
 
-      private List<String> options;
-    public List<? extends Serializable> getAllCityJsp() {
-        options = new ArrayList<>();
-        try (Connection c = getConnection(); Statement st = c.createStatement();) {
-            ResultSet rs = st.executeQuery("SELECT * FROM public.city");
-            Collection<City> out = new ArrayList<>();
-            while (rs.next()) {
-                options.add(rs.getString("name") );
-//                        rs.getString("name"),
-//                        rs.getInt("language")
-//                );
-            }
-            return options;
-        } catch (Exception e) {
-            System.out.println("Error get all city;");
-            e.printStackTrace();
-            return Collections.emptyList();
-        }
-    }
+
 
     public Collection<City> getByLanguage(int language) {
         try (Connection c = getConnection(); Statement st = c.createStatement();) {
